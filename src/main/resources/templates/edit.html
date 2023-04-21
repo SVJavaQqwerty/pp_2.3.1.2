@@ -6,8 +6,9 @@
 </head>
 <body>
 <div th:each="user : ${users}">
-    <form method="post">
+    <form th:method="post">
        <!-- <input type="text" th:value="${user.id}" name="id"/>-->
+        <input type="hidden" name="_method" value="put"/>
         <input type="text" th:value="${user.name}" name="name" placeholder="Ввеите имя"/>
         <input type="text" th:value="${user.lastName}" name="lastName" placeholder="Ввеите второе имя"/>
         <input type="text" th:value="${user.email}" name="email" placeholder="Ввеите свой e-mail"/>

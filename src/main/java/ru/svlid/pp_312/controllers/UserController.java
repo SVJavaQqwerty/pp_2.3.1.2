@@ -71,7 +71,7 @@ public class UserController {
         return "edit";
     }
     @Transactional
-    @PostMapping("user/{id}/edit")
+    @PutMapping("user/{id}/edit")
     public String updateUser(@RequestParam String name, @RequestParam String lastName, @RequestParam String email,
                              @PathVariable Long id) {
         User user = userService.findById(id).orElseThrow();
