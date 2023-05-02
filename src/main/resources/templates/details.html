@@ -11,15 +11,14 @@
     <p th:text="${user.lastName}"/>
     <p th:text="${user.email}"/>
     <a href="/user">Пользователи</a>
-    <a th:href="'/user/' + ${user.id} + '/edit'">Редактировать</a>
+    <br/>
     <form th:action="${user.id} + '/edit'" th:method="get">
         <button type="submit">Редактировать</button>
     </form>
+    <br/>
     <form th:action="'delete/' + ${user.id}" th:method="delete">
         <button type="submit">Удалить</button>
     </form>
 </div>
-
-
 </body>
 </html>

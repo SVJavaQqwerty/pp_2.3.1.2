@@ -1,50 +1,17 @@
 package ru.svlid.pp_312.service;
 
-import jakarta.persistence.Id;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.svlid.pp_312.models.User;
-import ru.svlid.pp_312.repos.UserRepo;
 
-import java.util.Collections;
-import java.util.Optional;
+public interface UserService {
+    public  Iterable<User> findAllById(Long id);
 
-@Service
-@Transactional
-public class UserService {
+    public void save (User user);
 
-    @Autowired
-    private UserRepo userRepo;
+    public void delete(Long id);
 
-    public Iterable<User> findAll() {
-        return userRepo.findAll();
-    }
+    public void updateUser(User user);
 
-    public  Iterable<User> findAllById(Long id) {
-        return  userRepo.findAllById(Collections.singleton(id));
-    }
+    public Iterable<User> findAll();
 
-    public User save (User user) {
-
-        return userRepo.save(user);
-    }
-
-    public boolean existsById(Long id) {
-        return userRepo.existsById(id);
-    }
-
-    public Optional<User> findById(Long id) {
-        return userRepo.findById(id);
-    }
-
-    public void delete(User user) {
-        userRepo.delete(user);
-    }
-
-
-    public Iterable<User> addId(Long id) {
-        return null;
-    }
 
 }
